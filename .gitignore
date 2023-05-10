@@ -2,3 +2,5 @@ venv
 mushroom_classification.egg-info
 dist
 build
+.idea
+.DS_Store
