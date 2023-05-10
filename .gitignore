@@ -1,0 +1,4 @@
+venv
+mushroom_classification.egg-info
+dist
+build
