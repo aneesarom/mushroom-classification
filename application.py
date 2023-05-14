@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 from src.pipelines.prediction_pipeline import CustomData, PredictionPipeline
 
-app = Flask(__name__)
+application = Flask(__name__)
+app = application
 
 categorical_cols = ['cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor', 'gill-attachment',
                     'gill-spacing', 'gill-size', 'gill-color', 'stalk-shape', 'stalk-root',
@@ -78,7 +79,6 @@ def new_prediction():
                       stalk_color_above_ring, stalk_color_below_ring, veil_color, ring_number, ring_type,
                       spore_print_color, population, habitat)
     df = data.get_data_as_dataframe()
-    print(df)
     model = PredictionPipeline()
     prediction = model.predict(df)
     if prediction[0] == "e":
@@ -89,4 +89,4 @@ def new_prediction():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(host='0.0.0.0', debug=True)
