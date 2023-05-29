@@ -75,13 +75,3 @@ class PredictionPipeline:
         predicted = model_file.predict(data)
         logging.info("Data has been successfully predicted in prediction pipeline")
         return predicted
-
-
-custom_data = CustomData("f", "y", "g", "t", "n", "f", "c", "b", "n", "t", "b", "s", "s", "g", "p", "w", "o",
-                         "p", "n", "y", "d")
-
-df = custom_data.get_data_as_dataframe()
-
-prediction = PredictionPipeline()
-class_ = prediction.predict(df)
-print(class_)
