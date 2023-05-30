@@ -1,6 +1,5 @@
 import os
 import sys
-import pickle
 import pandas as pd
 import numpy as np
 from src.logging.logging import logging
@@ -52,11 +51,17 @@ class DataTransformation:
 
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
+
+            train_df.replace("?", np.nan, inplace=True)
+            test_df.replace("?", np.nan, inplace=True)
+
             logging.info(f"Train dataframe head: \n {train_df.head().to_string()}")
             logging.info(f"Test dataframe head: \n {test_df.head().to_string()}")
 
             target_feature_col = "class"
-            input_feature_train_df = train_df.drop([target_feature_col], axis=1)
+            drop_column = "veil-type"
+
+            input_feature_train_df = train_df.drop([target_feature_col, drop_column], axis=1)
             target_feature_train = train_df[target_feature_col]
             input_feature_test_df = test_df.drop([target_feature_col], axis=1)
             target_feature_test = test_df[target_feature_col]

@@ -23,7 +23,7 @@ gill_spacing_categories = ['c', 'w']
 gill_size_categories = ['b', 'n']
 gill_color_categories = ['b', 'p', 'w', 'n', 'g', 'h', 'u', 'k', 'e', 'y', 'o', 'r']
 stalk_shape_categories = ['t', 'e']
-stalk_root_categories = ['b', '?', 'e', 'c', 'r']
+stalk_root_categories = ['b', 'e', 'c', 'r']
 stalk_surface_above_ring_categories = ['s', 'k', 'f', 'y']
 stalk_surface_below_ring_categories = ['s', 'k', 'f', 'y']
 stalk_color_above_ring_categories = ['w', 'p', 'g', 'n', 'b', 'o', 'e', 'c', 'y']
@@ -90,10 +90,12 @@ def new_prediction():
     model = PredictionPipeline()
     prediction = model.predict(df)
     if prediction[0] == "e":
+        confidence = int(prediction[1][0][0] * 100)
         prediction = "Edible ✅"
     else:
+        confidence = int(prediction[1][0][1] * 100)
         prediction = "Poisonous ❌"
-    return render_template("result.html", predict=prediction)
+    return render_template("result.html", predict=prediction, confidence=confidence)
 
 
 if __name__ == "__main__":

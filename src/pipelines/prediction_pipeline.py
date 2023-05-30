@@ -73,5 +73,6 @@ class PredictionPipeline:
         data = preprocessor_file.transform(data)
         logging.info("Data has been successfully transformed in prediction pipeline")
         predicted = model_file.predict(data)
+        probability = model_file.predict_proba(data)
         logging.info("Data has been successfully predicted in prediction pipeline")
-        return predicted
+        return predicted, probability
