@@ -47,15 +47,19 @@ drop_down_order = [cap_shape_categories, cap_surface_categories, cap_color_categ
 
 @app.route("/")
 def index():
+    # Get the value of the training_complete parameter from the URL
+    training_complete = request.args.get('training_complete', False)
     return render_template("index.html", col=columns, drop_down_order=drop_down_order,
-                           categorical_cols=categorical_cols, enumerate=enumerate)
+                           categorical_cols=categorical_cols, enumerate=enumerate, training_complete=training_complete)
 
 
 @app.route('/train', methods=['GET'])
 def train_model():
     # Call the training pipeline script using subprocess
     subprocess.run(['python', 'src/pipelines/training_pipeline.py'])
-    return redirect(url_for("index"))
+    # Set the training_complete variable to True
+    training_complete = True
+    return redirect(url_for("index", training_complete=training_complete))
 
 
 @app.route("/predict", methods=["GET", "POST"])

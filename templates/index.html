@@ -68,10 +68,21 @@
       button[type=submit]:hover {
         background-color: #45a049;
       }
+
+      .message {
+        text-align: center;
+        margin-top: 20px;
+        color: green;
+      }
     </style>
   </head>
 
   <body>
+      {% if training_complete %}
+    <div class="message">
+      Training completed successfully!
+    </div>
+    {% endif %}
     <h1>🍄Mushroom Classification App</h1>
     <form method="POST" action="/predict">
         {% for input_name in col[22:] %}
