@@ -57,7 +57,7 @@ These models can be found in the `model_trainer.py` script in the repository. Th
 ## Evaluation
 
 To evaluate the model's performance, metrics such as accuracy, precision, 
-recall, and F1 score are used in the model trainer
+recall, and F1 score was used in the model trainer
 
 ## Usage
 

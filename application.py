@@ -82,9 +82,9 @@ def new_prediction():
     model = PredictionPipeline()
     prediction = model.predict(df)
     if prediction[0] == "e":
-        prediction = "Edible"
+        prediction = "Edible ✅"
     else:
-        prediction = "Poisonous"
+        prediction = "Poisonous ❌"
     return render_template("result.html", predict=prediction)
 
 
