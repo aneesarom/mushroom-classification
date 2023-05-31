@@ -1,4 +1,0 @@
-[ 2023-05-07 10:25:35,368 ] 25 root - INFO - Successfully read data from the source data
-[ 2023-05-07 10:25:35,394 ] 29 root - INFO - Raw data has been successfully created
-[ 2023-05-07 10:25:35,398 ] 32 root - INFO - Train and Test data has been successfully split
-[ 2023-05-07 10:25:35,423 ] 35 root - INFO - Data ingestion has been successfully completed
