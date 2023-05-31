@@ -33,9 +33,12 @@ python setup.py install
 
 ## Data
 
-The dataset used for training and evaluation is stored in the `artifacts` 
+The dataset used for training and evaluation is stored in database. 
+Read the data from the database and stored in the `artifacts` 
 directory. It consists of a CSV file named `raw.csv` containing 
 the mushroom attributes and their corresponding classes.
+
+Note: For security reason I removed the database username and password in code
 
 ## Preprocessing
 
@@ -73,4 +76,4 @@ To classify mushrooms, enter the attributes in the provided input fields and cli
 ## Deployment
 
 The project can be deployed using various platforms such as AWS Elastic Beanstalk deployment service. Follow the deployment instructions provided by the chosen platform to deploy the Mushroom Classification App.
-
+For security purpose I didnt pasted deployed link. If required kindly mail me
