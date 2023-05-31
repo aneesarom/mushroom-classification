@@ -22,7 +22,7 @@ class LoadData:
     def create_database(self):
         try:
             client = pymongo.MongoClient(
-                f"mongodb+srv://aneesarom:aneesarom@cluster0.dxomcpg.mongodb.net/?retryWrites=true&w=majority")
+                f"mongodb+srv://username:username@cluster0.dxomcpg.mongodb.net/?retryWrites=true&w=majority")
             logging.info("Successfully connected to the MongoDB database.")
 
             self.db = client["mushroom_classification"]
