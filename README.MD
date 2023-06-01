@@ -26,7 +26,9 @@ conda create -p venv python==3.8
 ```
 conda activate "folder location"
 ```
-
+```
+pip install -r requirements.txt
+```
 ```
 python setup.py install
 ```
