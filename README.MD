@@ -80,4 +80,4 @@ To classify mushrooms, enter the attributes in the provided input fields and cli
 
 The project can be deployed using various platforms such as AWS Elastic Beanstalk deployment service. Follow the deployment instructions provided by the chosen platform to deploy the Mushroom Classification App.
 
-Note: For security purpose I didnt add deployed link. If required to evaluate it kindly mail me
+Note: I am using free tier account so I didnt add deployed link. If required to evaluate the project kindly mail me
