@@ -38,7 +38,8 @@ python setup.py install
 The dataset used for training and evaluation is stored in database. 
 Read the data from the database and stored in the `artifacts` 
 directory. It consists of a CSV file named `raw.csv` containing 
-the mushroom attributes and their corresponding classes.
+the mushroom attributes and their corresponding classes. Refer the data dictionary file which is stored in 
+`notebooks/data/data dictionary.txt`
 
 Note: For security reason I removed the database username and password in code
 
