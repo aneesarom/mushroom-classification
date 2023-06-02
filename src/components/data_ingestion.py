@@ -20,6 +20,7 @@ class DataIngestion:
 
     def initialize_data_ingestion(self):
         try:
+            # Read the raw the data and split it into train and test
             logging.info("Data ingestion has been initiated")
             df = pd.read_csv(self.ingestion_config.raw_path)
             logging.info("Successfully read data from the artifacts raw data")

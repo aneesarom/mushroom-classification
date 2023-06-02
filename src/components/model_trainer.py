@@ -23,6 +23,7 @@ class ModelTrainer:
         self.model_trainer_config = ModelTrainerConfig()
 
     def cross_validation(self, name, model, train_arr, test_arr):
+        # To check for accuracy for the different sample
         arr = np.concatenate((train_arr, test_arr), axis=0)
         y_arr = arr[:, -1]
         x_arr = arr[:, :-1]
@@ -33,6 +34,7 @@ class ModelTrainer:
 
     def initiate_model_training(self, train_arr, test_arr):
         try:
+            # input and target feature split
             x_train, x_test, y_train, y_test = train_arr[:, :-1], test_arr[:, :-1], train_arr[:, -1], test_arr[:, -1]
             logging.info(f"train_test_shape: {x_train.shape, y_train.shape, x_test.shape, y_test.shape}")
 
@@ -45,6 +47,7 @@ class ModelTrainer:
             cross_f1_macro_list = []
             logging.info("Model training has been successfully initiated")
 
+            # model training and evaluation
             for name, model in models.items():
                 model.fit(x_train, y_train)
                 y_pred = model.predict(x_test)
@@ -56,6 +59,7 @@ class ModelTrainer:
 
             logging.info("Model training has been successfully completed")
 
+            # finding the best model
             max_value = max(cross_f1_macro_list)
             max_value_index = cross_f1_macro_list.index(max_value)
             best_model_name = list(models.keys())[max_value_index]

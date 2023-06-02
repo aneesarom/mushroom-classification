@@ -66,12 +66,15 @@ class PredictionPipeline:
         pass
 
     def predict(self, data):
+        # Set the path for pickle file
         preprocessor_path = os.path.join("artifacts", "preprocessor.pkl")
         model_path = os.path.join("artifacts", "best_model.pkl")
+        # load the pickle file
         preprocessor_file = load_object(preprocessor_path)
         model_file = load_object(model_path)
         data = preprocessor_file.transform(data)
         logging.info("Data has been successfully transformed in prediction pipeline")
+        # predict the classification and find its probability
         predicted = model_file.predict(data)
         probability = model_file.predict_proba(data)
         logging.info("Data has been successfully predicted in prediction pipeline")
